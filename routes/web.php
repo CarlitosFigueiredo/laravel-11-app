@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
@@ -12,4 +13,10 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+Route::get('/user/{id?}', function (Request $request, ?string $id = null) {
+    return 'User ' . $id;
+})->where('id', '[0-9]+');
+
+Route::permanentRedirect('/here', '/greeting');
+
+require __DIR__ . '/auth.php';
