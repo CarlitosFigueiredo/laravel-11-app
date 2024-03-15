@@ -5,6 +5,7 @@ use App\Http\Controllers\ProvisionServer;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 Route::view('/', 'welcome');
 
@@ -27,5 +28,10 @@ Route::post('/server', ProvisionServer::class); // Ação unica...
 Route::resource('photos', PhotoController::class)->shallow();
 
 Route::permanentRedirect('/here', '/greeting');
+
+Route::get('/aqui', function () {
+    // return view('greeting'); auxiliar global
+    return View::make('greeting'); // fachada
+});
 
 require __DIR__ . '/auth.php';
