@@ -30,7 +30,7 @@ Route::resource('photos', PhotoController::class)->shallow();
 Route::permanentRedirect('/here', '/greeting');
 
 Route::get('/aqui', function () {
-    // return view('greeting'); auxiliar global
+    // return view('greeting');  // auxiliar global
     return View::make('greeting'); // fachada
 });
 
