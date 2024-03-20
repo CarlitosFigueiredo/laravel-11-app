@@ -34,6 +34,4 @@ Route::get('/aqui', function () {
     return View::make('greeting'); // fachada
 });
 
-// abc of life
-
 require __DIR__ . '/auth.php';
